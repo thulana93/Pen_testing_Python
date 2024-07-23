@@ -12,7 +12,7 @@ def main(interface, MAC):
     subprocess.call('sudo ifconfig ' + interface + ' down', shell=True)
     subprocess.call('sudo ifconfig ' + interface +  ' hw ether ' + MAC, shell=True)
     subprocess.call('sudo ifconfig ' + interface + ' up', shell=True)
-    subprocess.call('ifconfig', shell=True)
+    subprocess.call('ifconfig ' + interface, shell=True)
 
 if __name__=="__main__":
     main(interface, MAC)
