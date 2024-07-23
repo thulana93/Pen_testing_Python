@@ -14,9 +14,8 @@ def main(interface, MAC):
     subprocess.call('sudo ifconfig ' + interface +  ' hw ether ' + MAC, shell=True)
     subprocess.call('sudo ifconfig ' + interface + ' up', shell=True)
     results = subprocess.check_output(['ifconfig', interface])
-    #print(results)
-    results= results.decode('utf-8')
-    mac_out=re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w:", results)
+    #results= results.decode('utf-8')
+    mac_out=re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w:", str(results))
     if mac_out:
         if MAC == mac_out:
             print('[+] MAC Address is changed successfully')
